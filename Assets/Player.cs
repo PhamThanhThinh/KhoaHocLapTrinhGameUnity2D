@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
   private float tocDo;
   [SerializeField]
   private float jump = 8;
+  [SerializeField]
+  private bool facingRight = true;
 
   void Awake()
   {
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     HandleInput();
     HandleMovement();
     HandleAnimation();
+    HadleFlip();
   }
 
   private void HandleAnimation()
@@ -54,6 +57,25 @@ public class Player : MonoBehaviour
   {
     // dòng code chủ yếu của jump
     rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jump);
+  }
+
+  private void HadleFlip()
+  {
+    if (rb2d.linearVelocity.x > 0 && facingRight == false)
+    {
+      Flip();
+    }
+    else if (rb2d.linearVelocity.x < 0 && facingRight == true)
+    {
+      Flip();
+    }
+  }
+
+  //[ContextMenu("Flip")]
+  private void Flip()
+  {
+    transform.Rotate(0, 180, 0);
+    facingRight = !facingRight;
   }
 
 }

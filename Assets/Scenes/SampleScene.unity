@@ -625,11 +625,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4400016f376f50e4cbba2136687e3166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  rb2d: {fileID: 1366919477}
   trucOx: 0
   tocDo: 11
-  gold: 0
   jump: 8
+  facingRight: 1
 --- !u!70 &1366919479
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
