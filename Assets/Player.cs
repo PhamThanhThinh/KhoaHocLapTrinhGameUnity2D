@@ -44,9 +44,12 @@ public class Player : MonoBehaviour
 
   private void HandleAnimation()
   {
-    bool isMoving = rb2d.linearVelocity.x != 0;
+    //bool isMoving = rb2d.linearVelocity.x != 0;
 
-    anim.SetBool("isMoving", isMoving);
+
+    anim.SetFloat("xVelocity", rb2d.linearVelocity.x);
+
+    anim.SetBool("isGround", isGround);
 
     if (!isGround)
     {
