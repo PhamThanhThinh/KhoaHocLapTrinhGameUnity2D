@@ -6,8 +6,9 @@ public class Player : MonoBehaviour
   private Rigidbody2D rb2d;
   private Animator anim;
 
-  // chuyển động
-  [Header("Animation")]
+  // chuyển động - movement
+  //[Header("Animation")]
+  [Header("Movement")]
   public float trucOx;
   [SerializeField]
   private float tocDo;
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour
   private float jump = 8;
   [SerializeField]
   private bool facingRight = true;
+  // run move chạy di chuyển qua trái qua phải
+  private bool canMove = true;
+  // nhảy
+  private bool canJump = true;
 
   // kiểm tra va chạm
   [Header("Collision")]
@@ -42,6 +47,13 @@ public class Player : MonoBehaviour
     HadleFlip();
   }
 
+  //EnableJumpAndMovement
+  public void KichHoatNhayVaDiChuyen(bool enable)
+  {
+    canMove = enable;
+    canJump = enable;
+  }
+
   private void HandleAnimation()
   {
     //bool isMoving = rb2d.linearVelocity.x != 0;
@@ -55,8 +67,10 @@ public class Player : MonoBehaviour
     {
       anim.SetFloat("yVelocity", rb2d.linearVelocity.y);
     }
-    
+
   }
+
+  
 
   private void HandleInput()
   {
@@ -68,20 +82,42 @@ public class Player : MonoBehaviour
       Debug.Log("Bạn đang nhấn phím Space");
       Jump();
     }
-    
+
+    if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.F))
+    {
+      Attack();
+    }
+  }
+
+  private void Attack()
+  {
+    //anim.SetTrigger("attack");
+    if (isGround)
+    {
+      anim.SetTrigger("attack");
+      rb2d.linearVelocity = new Vector2(0, rb2d.linearVelocity.y);
+    }
+
+  }
+
+  private void Jump()
+  {
+    if (isGround && canJump)
+    {
+      rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jump);
+    }
   }
 
   private void HandleMovement()
   {
     // chuyển động qua trái qua phải
-    rb2d.linearVelocity = new Vector2(trucOx * tocDo, rb2d.linearVelocity.y);
-  }
-
-  private void Jump()
-  {
-    if (isGround)
+    if (canMove) // canMove == true
     {
-      rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jump);
+      rb2d.linearVelocity = new Vector2(trucOx * tocDo, rb2d.linearVelocity.y);
+    }
+    else
+    {
+      rb2d.linearVelocity = new Vector2(0, rb2d.linearVelocity.y);
     }
   }
 
