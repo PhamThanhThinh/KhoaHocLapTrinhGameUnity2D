@@ -22,4 +22,10 @@ public class PlayerAnimatorEvent : MonoBehaviour
   {
     player.KichHoatNhayVaDiChuyen(true);
   }
+
+  public void GaySatThuongLenKeDich()
+  {
+    player.GaySatThuongLenKeDich();
+  }  
+
 }

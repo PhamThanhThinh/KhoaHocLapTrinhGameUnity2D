@@ -1,10 +1,35 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
   private Rigidbody2D rb2d;
   private Animator anim;
+
+  public Collider2D[] colliders;
+  //public List<Collider2D> viDuListCollider;
+
+  // phạm vi sát thương
+  // bán kính sát thương
+  [Header("Attack Detail")]
+
+  // dùng cho quái vật
+  [SerializeField]
+  private float banKinhGaySatThuong;
+  [SerializeField]
+  private float attackPointCach1;
+  [SerializeField]
+  private Transform attackPoint;
+  
+  //private float diemTanCong;
+
+  // phát hiện đối tượng tấn công
+  // phát hiện kẻ địch
+  // phát hiện quái vật
+  [SerializeField]
+  private LayerMask phatHienQuaiVat;
 
   // chuyển động - movement
   //[Header("Animation")]
@@ -45,6 +70,67 @@ public class Player : MonoBehaviour
     HandleMovement();
     HandleAnimation();
     HadleFlip();
+  }
+
+  // gây sát thương lên kẻ địch
+  // DamageEnemies
+  //[ContextMenu("GaySatThuongLenKeDich")]
+  public void GaySatThuongLenKeDich()
+  {
+    //    // default damage applied when calling message handlers
+    //    float damage = 1f;
+
+    //    // compute detection center: player's position + facing direction * attackPoint
+    //    Vector2 center = (Vector2)transform.position + (Vector2)transform.right * attackPoint;
+
+    //    // find all colliders in the attack radius that belong to the enemy layer mask
+    //    colliders = Physics2D.OverlapCircleAll(center, banKinhGaySatThuong, phatHienQuaiVat);
+
+    //    if (colliders == null || colliders.Length == 0)
+    //    {
+    //      return;
+    //    }
+
+    //    // notify each hit object
+    //    foreach (var col in colliders)
+    //    {
+    //      if (col == null) continue;
+
+    //      var go = col.gameObject;
+
+    //      // Try common method names used by enemy scripts. Use DontRequireReceiver to avoid errors
+    //      go.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+    //      go.SendMessage("ReceiveDamage", damage, SendMessageOptions.DontRequireReceiver);
+    //      go.SendMessage("OnHit", SendMessageOptions.DontRequireReceiver);
+    //    }
+
+    //#if UNITY_EDITOR
+    //    // helpful debug info in editor (can be removed or guarded by a debug flag)
+    //    Debug.Log($"Attack detected {colliders.Length} target(s) at {center} with radius {banKinhGaySatThuong}.");
+    //#endif
+
+
+    // default damage applied when calling message handlers
+    //float damage = 1f;
+
+    // Cách 1:
+    // compute detection center: player's position + facing direction * attackPoint
+    // Vector2 center = (Vector2)transform.position + (Vector2)transform.right * attackPointCach1;
+
+    // colliders = Physics2D.OverlapCircleAll(center, banKinhGaySatThuong, phatHienQuaiVat);
+
+    // Cách 2:
+    // chỉ nhận enemy một lần (một lần có thể có nhiều enemy)
+    // colliders = Physics2D.OverlapCircleAll(attackPoint.position, banKinhGaySatThuong, phatHienQuaiVat);
+
+    // Cách 3:
+    Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, banKinhGaySatThuong, phatHienQuaiVat);
+
+    foreach (Collider2D item in colliders)
+    {
+      item.GetComponent<Enemy>().GaySatThuong();
+    }
+
   }
 
   //EnableJumpAndMovement
@@ -145,10 +231,17 @@ public class Player : MonoBehaviour
     facingRight = !facingRight;
   }
 
+  //// vẽ đường thẳng
+  //private void OnDrawGizmos()
+  //{
+  //  Gizmos.DrawLine(transform.position, (transform.position + new Vector3(0, -groundDistance)));
+  //}
+
   // vẽ đường thẳng
   private void OnDrawGizmos()
   {
     Gizmos.DrawLine(transform.position, (transform.position + new Vector3(0, -groundDistance)));
+    Gizmos.DrawWireSphere(attackPoint.position, banKinhGaySatThuong);
   }
 
 }
