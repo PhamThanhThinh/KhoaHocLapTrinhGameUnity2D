@@ -7,8 +7,10 @@ public class Skeleton : Enemy
   {
     base.Start();
     // health point
-    health = 50;
+    //health = 50;
+    SetHealth(50);
     // tốc độ
-    speed = 2.5f;
+    //speed = 2.5f;
+    SetSpeed(2.5f);
   }
 }

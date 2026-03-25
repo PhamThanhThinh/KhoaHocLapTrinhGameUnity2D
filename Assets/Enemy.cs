@@ -3,9 +3,9 @@
 public class Enemy : MonoBehaviour
 {
   // health point
-  public int health = 100;
+  [SerializeField] private int health = 100;
   // tốc độ
-  public float speed = 2f;
+  [SerializeField] private float speed = 2f;
 
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   protected virtual void Start()
@@ -22,6 +22,21 @@ public class Enemy : MonoBehaviour
   protected virtual void Move()
   {
     Debug.Log("chức năng di chuyển");
+  }
+
+  // method lấy dữ liệu
+  public int GetHealth() { return health; }
+  public float GetSpeed() { return speed; }
+
+  // method cập nhật dữ liệu
+  protected void SetHealth(int value)
+  {
+    health = value;
+  }
+
+  protected void SetSpeed(float value)
+  {
+    speed = value;
   }
 
   public virtual void TakeDamage (int damage)

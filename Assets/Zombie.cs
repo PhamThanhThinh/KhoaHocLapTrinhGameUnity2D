@@ -7,8 +7,10 @@ public class Zombie : Enemy
   {
     base.Start();
     // health point
-    health = 150;
+    //health = 150;
+    SetHealth(150);
     // tốc độ
-    speed = 1.5f;
+    //speed = 1.5f;
+    SetSpeed(1.5f);
   }
 }
