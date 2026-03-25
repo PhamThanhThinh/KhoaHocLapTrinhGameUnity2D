@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 603494340}
   - component: {fileID: 603494339}
   - component: {fileID: 603494338}
-  - component: {fileID: 603494337}
   m_Layer: 7
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -276,20 +275,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &603494337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603494336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166a2985c4798e04a8f523c4ccc81149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  thoiGian: 2
-  time: 0
 --- !u!58 &603494338
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1147,7 +1132,6 @@ GameObject:
   - component: {fileID: 836900541}
   - component: {fileID: 836900540}
   - component: {fileID: 836900539}
-  - component: {fileID: 836900538}
   m_Layer: 7
   m_Name: Enemy (3)
   m_TagString: Untagged
@@ -1155,20 +1139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &836900538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836900537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166a2985c4798e04a8f523c4ccc81149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  thoiGian: 0.5
-  time: 0
 --- !u!58 &836900539
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1291,7 +1261,6 @@ GameObject:
   - component: {fileID: 879906881}
   - component: {fileID: 879906883}
   - component: {fileID: 879906884}
-  - component: {fileID: 879906885}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -1436,20 +1405,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &879906885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879906880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166a2985c4798e04a8f523c4ccc81149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  thoiGian: 0.5
-  time: 0
 --- !u!1 &937673135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1417,6 @@ GameObject:
   - component: {fileID: 937673139}
   - component: {fileID: 937673138}
   - component: {fileID: 937673137}
-  - component: {fileID: 937673136}
   m_Layer: 7
   m_Name: Enemy (4)
   m_TagString: Untagged
@@ -1470,20 +1424,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &937673136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937673135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166a2985c4798e04a8f523c4ccc81149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  thoiGian: 5
-  time: 0
 --- !u!58 &937673137
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2555,7 +2495,6 @@ GameObject:
   - component: {fileID: 1858712064}
   - component: {fileID: 1858712063}
   - component: {fileID: 1858712062}
-  - component: {fileID: 1858712061}
   m_Layer: 7
   m_Name: Enemy (2)
   m_TagString: Untagged
@@ -2563,20 +2502,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1858712061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858712060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166a2985c4798e04a8f523c4ccc81149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  thoiGian: 0.5
-  time: 0
 --- !u!58 &1858712062
 CircleCollider2D:
   m_ObjectHideFlags: 0
