@@ -13,4 +13,9 @@ public class Zombie : Enemy
     //speed = 1.5f;
     SetSpeed(1.5f);
   }
+  protected override void Move()
+  {
+    base.Move();
+    Debug.Log("zombie di chuyển chậm như rùa");
+  }
 }
